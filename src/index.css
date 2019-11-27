@@ -1,13 +1,158 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(215, 134, 240);
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100vw;
 }
+
+.app-filter-input{
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #FFF;
+  width: 228px;
+}
+
+.list-insert_input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #FFF;
+  width: 165px;
+}
+
+.list-insert_btn {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: purple;
+  color: #FFF;
+  border: 2px solid purple;
+}
+
+.list-item_add {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+
+  animation-name: addItem;
+  -webkit-animation-name: addItem; 
+
+  animation-duration: 2s; 
+  -webkit-animation-duration: 2s;
+
+  animation-timing-function: ease-in-out; 
+  -webkit-animation-timing-function: ease-in-out;     
+
+  visibility: visible !important; 
+}
+
+@keyframes addItem {
+  0% {
+      transform: translateX(-150%);
+  }
+  50%{
+      transform: translateX(8%);
+  }
+  65%{
+      transform: translateX(-4%);
+  }
+  80%{
+      transform: translateX(4%);
+  }
+  95%{
+      transform: translateX(-2%);
+  }           
+  100% {
+      transform: translateX(0%);
+  }   
+}
+
+@-webkit-keyframes addItem {
+  0% {
+      -webkit-transform: translateX(-150%);
+  }
+  50%{
+      -webkit-transform: translateX(8%);
+  }
+  65%{
+      -webkit-transform: translateX(-4%);
+  }
+  80%{
+      -webkit-transform: translateX(4%);
+  }
+  95%{
+      -webkit-transform: translateX(-2%);
+  }           
+  100% {
+      -webkit-transform: translateX(0%);
+  }
+}
+
+.list-item_text {
+  color: #333;
+  background-color: rgba(255, 255, 255, .5);
+  padding: 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.list-item_delete {
+  animation-name: deleteItem;
+  -webkit-animation-name: deleteItem; 
+
+  animation-duration: 2s; 
+  -webkit-animation-duration: 2s;
+
+  animation-timing-function: ease-in-out; 
+  -webkit-animation-timing-function: ease-in-out;     
+
+  visibility: visible !important; 
+}
+
+@keyframes deleteItem {
+0% {
+    transform: translateX(0%);
+}
+50%{
+    transform: translateX(2%);
+}
+65%{
+    transform: translateX(-4%);
+}
+80%{
+    transform: translateX(4%);
+}
+95%{
+    transform: translateX(-8%);
+}           
+100% {
+    transform: translateX(150%);
+}   
+}
+
+@-webkit-keyframes deleteItem {
+0% {
+    -webkit-transform: translateX(0%);
+}
+50%{
+    -webkit-transform: translateX(2%);
+}
+65%{
+    -webkit-transform: translateX(4%);
+}
+80%{
+    -webkit-transform: translateX(-4%);
+}
+95%{
+    -webkit-transform: translateX(-8%);
+}           
+100% {
+    -webkit-transform: translateX(150%);
+}
+} 
