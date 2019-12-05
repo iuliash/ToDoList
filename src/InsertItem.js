@@ -7,6 +7,8 @@ class InsertItem extends React.Component{
         this.state = {
             input : ''
         };
+
+        this.inpurRef = React.createRef;
     }
 
     addItem = () => {
@@ -34,7 +36,8 @@ class InsertItem extends React.Component{
                     placeholder="New item" 
                     onChange={this.inputChange} 
                     value={this.state.input} 
-                    onKeyPress={this.handleEnter}>
+                    onKeyPress={this.handleEnter}
+                    ref={this.inpurRef}>
                     </input>
                 <button className="list-insert_btn" onClick={this.addItem}>Add</button>
             </div>
