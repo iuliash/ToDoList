@@ -3,12 +3,6 @@ import Item from './Item'
 import InsertItem from './InsertItem'
 import Filter from './FIlter'
 
-const FIlterStoryItem = (props) => {
-  return(
-      <li>{props.title}</li>
-  )
-}
-
 class App extends React.Component {
 
   constructor(){
@@ -61,8 +55,7 @@ class App extends React.Component {
     const {items} = this.state;
     return(
       <div className="App">
-        
-        <Filter searhItem = {this.searchItems}/>
+        <Filter searhItems = {this.searchItems}/>
         <InsertItem  addItem={this.addItem}/>
         {items.map(item => (
           item.show && <Item 
