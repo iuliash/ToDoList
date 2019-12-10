@@ -1,6 +1,13 @@
 import React from 'react';
 import Item from './Item'
 import InsertItem from './InsertItem'
+import Filter from './FIlter'
+
+const FIlterStoryItem = (props) => {
+  return(
+      <li>{props.title}</li>
+  )
+}
 
 class App extends React.Component {
 
@@ -16,11 +23,10 @@ class App extends React.Component {
     };
   }
 
-  searchItems = e => {
-    let searchText = e.target.value.toLowerCase();
+  searchItems = searchText => {
     this.setState(state => {
-        this.state.items.map(item => item.show = item.title.toLowerCase().includes(searchText));
-        return state;
+      this.state.items.map(item => item.show = item.title.toLowerCase().includes(searchText));
+      return state;
     })
   }
 
@@ -55,7 +61,8 @@ class App extends React.Component {
     const {items} = this.state;
     return(
       <div className="App">
-        <input className="app-filter-input" onChange={this.searchItems} placeholder="Filter"/>
+        
+        <Filter searhItem = {this.searchItems}/>
         <InsertItem  addItem={this.addItem}/>
         {items.map(item => (
           item.show && <Item 
@@ -70,16 +77,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*
-анимация transition (+ и - и у animate)/ переделать
-создание временного массива во время фильрации 
-методы ЖЦ react 
-отрисовка реакт 
-? и if
-stateless and functions components 
-методы перебора массивов и в целом все методы, как они работают   
-типы данных и методы преобразования js
-при удалении лучше перезаписать массив полностью => splice
-ref
-*/

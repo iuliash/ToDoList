@@ -20,23 +20,14 @@ class InsertItem extends React.Component{
         return input;
     }
 
-    inputChange = e => {
-        this.setState({input: e.target.value});
-    } 
-
-    handleEnter = e => {
-        if (e.key === 'Enter')
-            this.addItem();
-    }
-
     render(){
         return(
             <div className="list-insert">
                 <input className="list-insert_input" 
                     placeholder="New item" 
-                    onChange={this.inputChange} 
+                    onChange={e => {this.setState({input: e.target.value})}} 
                     value={this.state.input} 
-                    onKeyPress={this.handleEnter}
+                    onKeyPress={e => {if (e.key === 'Enter') this.addItem()}}
                     ref={this.inpurRef}>
                     </input>
                 <button className="list-insert_btn" onClick={this.addItem}>Add</button>

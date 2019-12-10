@@ -11,7 +11,11 @@ body {
     width: 100vw;
 }
 
-.app-filter-input{
+.app-filter {
+    align-items: center;
+}
+
+.app-filter__input{
     padding: 10px;
     font-size: 16px;
     border: 2px solid #FFF;
@@ -55,4 +59,14 @@ body {
 
 .add {
     margin-left: 0%
+}
+
+.filter-story__item {
+    color: black;
+    background-color:white;
+    padding: 5px;  
+    width: 237px;
+    list-style-type: none;
+    font-size: 16px;
+    border: 2px solid #FFF;
 }
