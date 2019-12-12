@@ -4,7 +4,6 @@ import InsertItem from './InsertItem'
 import Filter from './FIlter'
 
 class App extends React.Component {
-
   constructor(){
     super();
 
@@ -17,9 +16,9 @@ class App extends React.Component {
     };
   }
 
-  searchItems = searchText => {
+  searchItems = filterText => {
     this.setState(state => {
-      this.state.items.map(item => item.show = item.title.toLowerCase().includes(searchText));
+      this.state.items.map(item => item.show = item.title.toLowerCase().includes(filterText));
       return state;
     })
   }

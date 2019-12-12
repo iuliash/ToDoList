@@ -15,31 +15,28 @@ class Filter extends React.Component {
         }
     }
 
-    searchItems = e => {
+    changeFilterStory = e => {
         if (e.key === 'Enter') {
-            let searchText = e.target.value.toLowerCase();
+            let filterText = e.target.value.toLowerCase();
             this.setState(state => {
                 let {filterStory} = state;
-                if (filterStory.every(item => item !== searchText)) {
+                if (filterStory.every(item => item !== filterText)) {
                     if (filterStory.length === 3){
-                        console.log(filterStory);
                         filterStory.splice(2, 1);
-                        console.log(filterStory);
-                        this.state.filterStory.unshift(searchText);
-                        console.log(filterStory);
+                        this.state.filterStory.unshift(filterText);
                     } else 
-                        this.state.filterStory.unshift(searchText);
+                        this.state.filterStory.unshift(filterText);
                 } else {
-                    let index = filterStory.indexOf(searchText);
+                    let index = filterStory.indexOf(filterText);
                     [filterStory[0], filterStory[index]]=[filterStory[index], filterStory[0]];
                 }
                 return state;
             })
-            this.props.searhItems(searchText);
+            this.props.searhItems(filterText);
         }
     }
     
-    changeFilterStory = e => {
+    isFilterInputClear = e => {
         if (e.target.value === '') {
             this.props.searhItems(e.target.value); 
         }
@@ -50,14 +47,13 @@ class Filter extends React.Component {
             <div className="app-filter">
                 <input 
                     className="app-filter__input" 
-                    onChange={this.changeFilterStory} 
+                    onChange={this.isFilterInputClear} 
                     placeholder="Filter"
-                    onKeyPress={this.searchItems}
+                    onKeyPress={this.changeFilterStory}
                     onFocus={e => {this.setState(state => {return this.state.isVisible = true})}}
                     onBlur={e => {this.setState(state => {return this.state.isVisible = false})}}
                 />
-                {
-                this.state.filterStory.map(item => (
+                {this.state.filterStory.map(item => (
                     this.state.isVisible && <FIlterStoryItem 
                     title = {item}
                     />

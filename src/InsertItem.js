@@ -7,11 +7,10 @@ class InsertItem extends React.Component{
         this.state = {
             input : ''
         };
-
-        this.inpurRef = React.createRef;
     }
 
-    addItem = () => {
+    addItem = e => {
+        e.preventDefault()
         const {input} = this.state;
         if (input) {
             this.props.addItem(input);
@@ -23,14 +22,14 @@ class InsertItem extends React.Component{
     render(){
         return(
             <div className="list-insert">
-                <input className="list-insert_input" 
-                    placeholder="New item" 
-                    onChange={e => {this.setState({input: e.target.value})}} 
-                    value={this.state.input} 
-                    onKeyPress={e => {if (e.key === 'Enter') this.addItem()}}
-                    ref={this.inpurRef}>
-                    </input>
-                <button className="list-insert_btn" onClick={this.addItem}>Add</button>
+                <form onSumbit={this.addItem}>
+                    <input className="list-insert_input" 
+                        placeholder="New item" 
+                        onChange={e => {this.setState({input: e.target.value})}} 
+                        value={this.state.input}
+                    />
+                    <button className="list-insert_btn" onClick={this.addItem}>Add</button>
+                </form>
             </div>
         )
     }
